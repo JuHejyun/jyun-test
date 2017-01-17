@@ -1,0 +1,36 @@
+
+近日某同事在用java发布一个API时，使用Json进行数据编码，发现JSON官方的java扩展在处理汉字时未进行ascii转义，如下所示：
+Java源码：
+
+AppObject ao=new AppObject(20,"鱼漂");
+try {
+JSONObject jo=new JSONObject(ao);
+System.out.println(jo.toString());
+} catch (Exception e) {
+System.out.println("json encode error.");
+}
+
+输出为：
+{"name":"鱼漂","age":10}
+
+其中的name仍然显示中文，未进行ascii转义，通常情况下是可以正常使用的，但在不同的系统互相调用时，可能需要编码转换，比如从GBK转到UTF8。
+
+通过查看源代码发现，在JSONObject.java的1138-1139行，只将\u0080-\u00a0, \u2000-\u2100的字符转成\u的格式。汉字的unicode编码不在这两个范围之内，所以不会转换。
+
+找到原因后，修改就比较简单，我们只需简单的将\u0080以上的所有字符，转成\u格式即可，将1138-1139行改为：
+if (c < ' ' || c >= '\u0080') {
+
+再次测试，输出结果为：
+{"name":"\u9c7c\u6f02","age":10}
+
+注：
+1. JSON官方的java扩展可以在 http://www.json.org/java/ 找到
+2. PHP自带的json扩展没此问题
+3. 本文原载于 http://www.eit.name/
+4. 关于汉字在unicode的位段，可参考前一篇转载的博文.
+
+
+
+http://suleil1.blog.163.com/blog/static/4501288220121094316138/
+
+http://blog.csdn.net/chaijunkun/article/details/8257209
