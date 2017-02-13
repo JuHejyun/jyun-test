@@ -14,6 +14,17 @@
 	</modules>
 
 	<properties>
+		<jdk.version>1.8</jdk.version>
+		<plugin.maven-clean-plugin.version>2.2</plugin.maven-clean-plugin.version>
+		<plugin.maven-resources-plugin.version>2.4</plugin.maven-resources-plugin.version>
+		<plugin.maven-compiler-plugin.version>3.0</plugin.maven-compiler-plugin.version>
+		<plugin.maven-install-plugin.version>2.4</plugin.maven-install-plugin.version>
+		<encoding>UTF-8</encoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jdk.version>1.8</jdk.version>
+
+
+
 		<spring.version>4.1.1.RELEASE</spring.version>
 		<commons-lang.version>3.5</commons-lang.version>
 		<junit.version>4.10</junit.version>
@@ -22,6 +33,41 @@
 		<jackson-databind.version>2.5.1</jackson-databind.version>
 		<fastjson.version>1.2.7</fastjson.version>
 	</properties>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>${plugin.maven-clean-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>${plugin.maven-resources-plugin.version}</version>
+				<configuration>
+					<encoding>${encoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${plugin.maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+					<encoding>${encoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>${plugin.maven-clean-plugin.version}</version>
+			</plugin>
+		</plugins>
+	</build>
+
 
 	<dependencyManagement>
 		<dependencies>
