@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class TaskQueueDaemonThread {
 
-    private static final Logger LOG = Logger.getLogger(TaskQueueDaemonThread.class);
+//    private static final Logger LOG = Logger.getLogger(TaskQueueDaemonThread.class);
 
     private TaskQueueDaemonThread() {
 	}
@@ -62,7 +62,7 @@ public class TaskQueueDaemonThread {
                         continue;
                     }
                     executor.execute(task);
-                    LOG.info("[at task:" + task + "]   [Time:" + System.currentTimeMillis() + "]");
+//                    LOG.info("[at task:" + task + "]   [Time:" + System.currentTimeMillis() + "]");
                 }
             } catch (Exception e) {
                 e.printStackTrace();
