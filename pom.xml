@@ -9,7 +9,7 @@
 	<packaging>pom</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<modules>
-		<module>jyun-test-util</module>
+		<module>jyun-test-common</module>
 		<module>jyun-test-web</module>
 	</modules>
 

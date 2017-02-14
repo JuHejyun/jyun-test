@@ -9,7 +9,7 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>jyun-test-util</artifactId>
+	<artifactId>jyun-test-common</artifactId>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>

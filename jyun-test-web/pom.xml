@@ -22,7 +22,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.jyun.test</groupId>
-			<artifactId>jyun-test-util</artifactId>
+			<artifactId>jyun-test-common</artifactId>
 			<version>1.0-SNAPSHOT</version>
 			<scope>test</scope>
 		</dependency>

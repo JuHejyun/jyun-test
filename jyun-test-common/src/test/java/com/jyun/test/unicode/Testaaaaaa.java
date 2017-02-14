@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.Date;
 import java.util.Map;
 
@@ -155,6 +156,15 @@ public class Testaaaaaa {
 	public void test4(){
 		BigDecimal bbb = new BigDecimal(10).divide(new BigDecimal(1).multiply(new BigDecimal(3)),BigDecimal.ROUND_UP);
 		System.out.println(bbb.intValue());
+	}
+
+
+	@Test
+	public void test5() throws UnsupportedEncodingException {
+		String aa = "哈哈哈";
+		String gbk = URLEncoder.encode(aa, "GBK");
+		System.out.println(gbk);
+
 	}
 
 
